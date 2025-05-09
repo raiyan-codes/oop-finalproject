@@ -3,6 +3,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 /**
@@ -287,7 +288,7 @@ public class TaskPanel extends JPanel {
             }
             
             java.util.Date date = (java.util.Date) dueDateSpinner.getValue();
-            LocalDate dueDate = ((java.sql.Date) date).toLocalDate();
+            LocalDate dueDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             
             result[0] = new TaskData(
                 name,

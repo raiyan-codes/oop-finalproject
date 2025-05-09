@@ -52,6 +52,17 @@ public class RoommateChoreManager extends JFrame {
         tabbedPane.addTab("My Tasks", taskPanel);
         tabbedPane.addTab("Household Tasks", householdPanel);
         tabbedPane.addTab("Reports", reportPanel);
+
+        tabbedPane.addChangeListener(e -> {
+            JTabbedPane source = (JTabbedPane) e.getSource();
+            int selectedIndex = source.getSelectedIndex();
+            String selectedTab = source.getTitleAt(selectedIndex);
+        
+            if ("Reports".equals(selectedTab)) {
+                reportPanel.refreshReport();
+            }
+        });
+   
         
         // Create status bar
         JPanel statusPanel = new JPanel(new BorderLayout());
@@ -177,6 +188,10 @@ public class RoommateChoreManager extends JFrame {
      * Handles adding a task
      */
     private void addTask() {
+        if (dataManager.getCurrentUser() == null) {
+            JOptionPane.showMessageDialog(this, "Please log in before adding a task.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         TaskPanel.TaskData taskData = taskPanel.showTaskDialog(null, dataManager.getAllUsers());
         
         if (taskData != null) {

@@ -70,7 +70,7 @@ public class ReportPanel extends JPanel {
         // Add components to main panel
         add(titlePanel, BorderLayout.NORTH);
         add(statsPanel, BorderLayout.CENTER);
-        add(scrollPane, BorderLayout.SOUTH);
+        //add(scrollPane, BorderLayout.SOUTH);
     }
     
     /**
@@ -79,6 +79,7 @@ public class ReportPanel extends JPanel {
     public void refreshReport() {
         // Clear existing data
         statsPanel.removeAll();
+        //taskTable.setVisible(false); 
         tableModel.setRowCount(0);
         
         // Get weekly report

@@ -47,11 +47,11 @@ public class LoginPanel extends JPanel {
         
         loginButton = new JButton("Login");
         loginButton.setBackground(new Color(70, 175, 80));
-        loginButton.setForeground(Color.WHITE);
+        loginButton.setForeground(Color.BLACK);
         
         registerButton = new JButton("Register");
         registerButton.setBackground(new Color(33, 150, 243));
-        registerButton.setForeground(Color.WHITE);
+        registerButton.setForeground(Color.BLACK);
         
         // Add components to the form panel
         gbc.gridx = 0;
